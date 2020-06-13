@@ -46,18 +46,20 @@ export class PharmacyLocationService extends BaseService {
     );
   }
 
-  async findNearestPharmacy(location: M.Location): Promise<M.Pharmacy> {
+  async findNearestPharmacy(location: M.Location): Promise<M.PharmacyLocation> {
     const pharmacies = await this.retrieve();
     const pharmacy_distances: M.PharmacyLocation[] = _.map(
       pharmacies,
       (pharmacy) => {
         return {
           pharmacy: pharmacy,
-          distance: this.getDistanceFromLatLonInKm(
-            location.latitude,
-            location.longitude,
-            pharmacy.latitude,
-            pharmacy.longitude
+          distance: this.convertKMtoMi(
+            this.getDistanceFromLatLonInKm(
+              location.latitude,
+              location.longitude,
+              pharmacy.latitude,
+              pharmacy.longitude
+            )
           ),
         };
       }
@@ -70,7 +72,7 @@ export class PharmacyLocationService extends BaseService {
       }
     );
 
-    return closest_pharmacy!.pharmacy;
+    return closest_pharmacy!;
   }
 
   //adapted from: https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula
@@ -96,5 +98,9 @@ export class PharmacyLocationService extends BaseService {
 
   deg2rad(deg: number) {
     return deg * (Math.PI / 180);
+  }
+
+  convertKMtoMi(km: number): number {
+    return km * 0.62137;
   }
 }
