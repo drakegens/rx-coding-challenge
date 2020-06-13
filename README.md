@@ -18,3 +18,7 @@
 I didn't set up any formal test infrastructure, but I placed a test script in `src/tools/test` that can be run with `npm run test`
 
 I also used Postman for testing.
+
+## Notes
+
+I am running a postgres db in a docker container to store the pharmacies data from the csv.
