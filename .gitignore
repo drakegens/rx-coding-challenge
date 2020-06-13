@@ -8,3 +8,5 @@ node_modules/
 **/*.js
 ./*.js
 **/*.js.map
+
+.DS_Store
