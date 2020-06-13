@@ -32,7 +32,7 @@ async function main(): Promise<void> {
 
   const pharmacies = await pharmacy_service.retrieve();
 
-  console.log("yooo Pharmacies", pharmacies);
+  console.log(pharmacies);
 }
 
 // tslint:disable-next-line: no-floating-promises
