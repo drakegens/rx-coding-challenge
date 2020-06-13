@@ -1,5 +1,8 @@
 server/node_modules/
 **/node_modules/
+server/dist/
+dist/
+node_modules/
 
 
 **/*.js
