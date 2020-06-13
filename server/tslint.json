@@ -1,9 +1,34 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:recommended"],
   "jsRules": {},
   "rules": {
-    "trailing-comma": [false]
+    "ban-comma-operator": true,
+    "curly": true,
+    "no-conditional-assignment": true,
+    "no-duplicate-variable": true,
+    "no-floating-promises": true,
+    "no-invalid-this": true,
+    "no-object-literal-type-assertion": true,
+    "no-return-await": true,
+    "no-shadowed-variable": true,
+    "no-sparse-arrays": true,
+    "no-string-throw": true,
+    "no-tautology-expression": true,
+    "no-unnecessary-class": true,
+    "no-unsafe-finally": true,
+    "no-var-keyword": true,
+    "prefer-object-spread": true,
+    "radix": true,
+    "static-this": true,
+    "triple-equals": true,
+    "deprecation": true,
+    "no-duplicate-imports": true,
+    "prefer-const": true,
+    "array-type": [true, "array"],
+    "arrow-return-shorthand": true,
+    "class-name": true,
+    "file-name-casing": [true, "snake-case"],
+    "one-variable-per-declaration": true
   },
-  "rulesDirectory": []
+  "rulesDirectory": ["./node_modules/tslint-tinypg/rules"]
 }

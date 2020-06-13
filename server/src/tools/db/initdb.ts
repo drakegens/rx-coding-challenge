@@ -11,7 +11,7 @@ const init = async () => {
     // connect to the local database server
     await client.connect();
     // read the contents of the initdb.pgsql file
-    const sql = await fs.readFile("./tools/initdb.pgsql", {
+    const sql = await fs.readFile("./src/tools/db/initdb.pgsql", {
       encoding: "UTF-8",
     });
     // split the file into separate statements
@@ -37,7 +37,7 @@ init()
     // tslint:disable-next-line: no-console
     console.log("finished");
   })
-  .catch(() => {
+  .catch((err) => {
     // tslint:disable-next-line: no-console
-    console.log("finished with errors");
+    console.log("finished with errors", err);
   });

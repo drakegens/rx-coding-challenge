@@ -9,30 +9,39 @@
     "prestart": "npm run build",
     "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "initdb": "ts-node tools/init_db"
+    "initdb": "ts-node src/tools/db/initdb",
+    "import-csv": "npm run build && ts-node src/tools/csv/import_csv"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "csv-parse": "^4.10.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "moment-timezone": "^0.5.31",
     "pg": "^8.2.1",
-    "pg-promise": "^10.5.6"
+    "pg-promise": "^10.5.6",
+    "tinypg": "^5.3.0",
+    "xregexp": "^4.3.0"
   },
   "devDependencies": {
+    "@types/csv-parse": "^1.2.2",
     "@types/express": "^4.17.6",
     "@types/fs-extra": "^9.0.1",
+    "@types/lodash": "^4.14.155",
     "@types/node": "^14.0.13",
     "@types/pg": "^7.14.3",
     "@types/shelljs": "^0.8.8",
     "fs-extra": "^9.0.1",
+    "lodash": "^4.17.15",
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.4",
     "ts-node": "^8.10.2",
     "tslint": "^6.1.2",
+    "tslint-tinypg": "^2.0.2",
     "typescript": "^3.9.5"
   }
 }
