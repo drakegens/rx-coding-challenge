@@ -2,20 +2,22 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "node .",
+    "start": "node src/index",
     "test": "echo \"Error: no test specified\" && exit 1",
     "initdb": "ts-node src/tools/db/initdb",
-    "import-csv": "npm run build && ts-node src/tools/csv/import_csv"
+    "import-csv": "npm run build && ts-node src/tools/csv/import_csv",
+    "import-csv-node": "npm run build && node src/tools/csv/import_csv",
+    "test-script": "npm run build && node src/tools/test/test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "csv-parse": "^4.10.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

@@ -1,22 +1,24 @@
 import dotenv from "dotenv";
 import express from "express";
+import * as routes from "./routes";
+import bodyParser from "body-parser";
 
 // initialize configuration
 dotenv.config();
 
-// port is now available to the Node.js runtime
-// as if it were an environment variable
+//"main": "dist/index.js",
+
 const port = process.env.SERVER_PORT;
 
 const app = express();
 
-// define a route handler for the default home page
-app.get("/", (_req, res) => {
-  res.send("Hello World");
-});
+// tslint:disable-next-line: deprecation
+app.use(bodyParser.json());
+
+//routes
+routes.register(app);
 
 // start the express server
 app.listen(port, () => {
-  // tslint:disable-next-line:no-console
   console.log(`server started at http://localhost:${port}`);
 });

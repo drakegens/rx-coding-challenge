@@ -8,10 +8,8 @@ async function main(): Promise<void> {
   const pharmacy_service = new S.PharmacyLocationService({ db: Db });
 
   const parser: csvParse.Parser = csvParse(
-    { delimiter: "," },
+    { delimiter: ",", from: 1 },
     async (_err, data) => {
-      // tslint:disable-next-line: no-console
-      console.log("hey", data);
       await Db.query("DELETE FROM pharmacies");
 
       return Promise.all(
@@ -31,6 +29,10 @@ async function main(): Promise<void> {
   ) as csvParse.Parser;
 
   fs.createReadStream(__dirname + "/pharmacies.csv").pipe(parser);
+
+  const pharmacies = await pharmacy_service.retrieve();
+
+  console.log("yooo Pharmacies", pharmacies);
 }
 
 // tslint:disable-next-line: no-floating-promises
